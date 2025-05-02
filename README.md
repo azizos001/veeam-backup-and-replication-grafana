@@ -19,3 +19,20 @@ sudo systemctl enable --now grafana-server
 jq and curl:
 sudo apt install -y jq curl
 
+Download the script:
+wget https://raw.githubusercontent.com/VeeamHub/grafana/master/veeam-enterprise_manager-grafana/veeam_enterprisemanager.sh
+chmod +x veeam_enterprisemanager.sh
+Edit the script:
+nano veeam_enterprisemanager.sh
+Update the config section like this:
+veeamUsername="your_veeam_username"
+veeamPassword="your_veeam_password"
+veeamRestServer="your_veeam_enterprise_manager_ip"
+veeamRestPort="9398"
+
+veeamInfluxDBURL="http://localhost"
+veeamInfluxDBPort="8086"
+veeamInfluxDBDatabase="veeamdb"
+Then run it:
+./veeam_enterprisemanager.sh
+
