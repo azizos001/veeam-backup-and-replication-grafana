@@ -90,3 +90,5 @@ Writing veeam_em_overview_vms to InfluxDB
 Error: failed to write data: 400 Bad Request: unable to parse 'veeam_em_overview_vms,host=172.16.106.100 veeamProtectedVms=,veeamBackedUpVms=,veeamReplicatedVms=,veeamRestorePoints=,veeamFullBackupPointsSize=,veeamIncrementalBackupPointsSize=,veeamReplicaRestorePointsSize=,veeamSourceVmsSize=,veeamSuccessBackupPercents=': missing field value
 Writing veeam_em_overview_jobs to InfluxDB
 Error: failed to write data: 400 Bad Request: unable to parse 'veeam_em_overview_jobs,host=172.16.106.100,veeamMaxDurationBackupJobName=None,veeamMaxDurationReplicaJobName=None veeamRunningJobs=,veeamScheduledJobs=,veeamScheduledBackupJobs=,veeamScheduledReplicaJobs=,veeamTotalJobRuns=,veeamSuccessfulJobRuns=,veeamWarningsJobRuns=,veeamFailedJobRuns=,veeamMaxJobDuration=,veeamMaxBackupJobDuration=,veeamMaxReplicaJobDuration=': missing field value
+/////////////
+curl -X POST "https://$veeamRestServer:$veeamRestPort/api/sessionMngr/?v=latest" -H "Authorization:Basic $veeamAuth" -H "Content-Length: 0" -H "Accept: application/json" -k
