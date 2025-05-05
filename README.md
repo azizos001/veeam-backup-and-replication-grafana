@@ -61,3 +61,7 @@ It will give you a token — copy and save it
 
 wget https://raw.githubusercontent.com/VeeamHub/grafana/master/veeam-enterprise_manager-grafana/influxdb-v2.0/veeam-enterprisemanager.sh
 chmod +x veeam-enterprisemanager.sh
+
+
+E: Conflicting values set for option Signed-By regarding source https://repos.influxdata.com/ubuntu/ jammy: /etc/apt/keyrings/influxdata-archive_compat.key != /usr/share/keyrings/influxdb.gpg
+E: The list of sources could not be read.
