@@ -65,3 +65,20 @@ chmod +x veeam-enterprisemanager.sh
 
 E: Conflicting values set for option Signed-By regarding source https://repos.influxdata.com/ubuntu/ jammy: /etc/apt/keyrings/influxdata-archive_compat.key != /usr/share/keyrings/influxdb.gpg
 E: The list of sources could not be read.
+///////////////
+sudo rm /etc/apt/sources.list.d/influxdb.list 2>/dev/null
+sudo rm /usr/share/keyrings/influxdb.gpg 2>/dev/null
+/////////////////////
+sudo rm /etc/apt/sources.list.d/influxdata.list 2>/dev/null
+////////////////////
+wget -qO- https://repos.influxdata.com/influxdata-archive_compat.key | sudo tee /etc/apt/keyrings/influxdata-archive_compat.key > /dev/null
+
+echo 'deb [signed-by=/etc/apt/keyrings/influxdata-archive_compat.key] https://repos.influxdata.com/ubuntu jammy stable' | \
+sudo tee /etc/apt/sources.list.d/influxdata.list
+/////////////////
+sudo apt update
+sudo apt install influxdb2
+//////////////
+sudo systemctl enable influxdb
+sudo systemctl start influxdb
+
