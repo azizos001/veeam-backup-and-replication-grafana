@@ -92,3 +92,22 @@ Writing veeam_em_overview_jobs to InfluxDB
 Error: failed to write data: 400 Bad Request: unable to parse 'veeam_em_overview_jobs,host=172.16.106.100,veeamMaxDurationBackupJobName=None,veeamMaxDurationReplicaJobName=None veeamRunningJobs=,veeamScheduledJobs=,veeamScheduledBackupJobs=,veeamScheduledReplicaJobs=,veeamTotalJobRuns=,veeamSuccessfulJobRuns=,veeamWarningsJobRuns=,veeamFailedJobRuns=,veeamMaxJobDuration=,veeamMaxBackupJobDuration=,veeamMaxReplicaJobDuration=': missing field value
 /////////////
 curl -X POST "https://$veeamRestServer:$veeamRestPort/api/sessionMngr/?v=latest" -H "Authorization:Basic $veeamAuth" -H "Content-Length: 0" -H "Accept: application/json" -k
+
+
+
+var essentialSteps = ["Get All VMs", "add vms to job", "new vms to backup"];
+    var isEssentialStep = false;
+    
+    // Case-insensitive comparison using a for loop
+    for (var j = 0; j < essentialSteps.length; j++) {
+        if (step.toLowerCase() === essentialSteps[j].toLowerCase()) {
+            isEssentialStep = true;
+            break;
+        }
+    }
+    
+    // Skip non-essential steps like "Fetch Compute Policies" and "Find PVDC Compute Policy"
+    if (!isEssentialStep) {
+        i += 3; // Skip Timestamp, Status, and Details lines
+        continue;
+    }
